@@ -46,8 +46,7 @@ class ViewController: UIViewController {
     
     func generateMemedImage() -> UIImage {
         // Hide the navigation bar and toolbar
-        navBar.isHidden = true
-        toolbar.isHidden = true
+        toggleBars(isHidden: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -56,10 +55,14 @@ class ViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         // Show Nav and Toolbar
-        navBar.isHidden = false
-        toolbar.isHidden = false
+        toggleBars(isHidden: false)
         
         return memedImage
+    }
+    
+    private func toggleBars(isHidden: Bool) {
+        navBar.isHidden = isHidden
+        toolbar.isHidden = isHidden
     }
     
     override func viewDidLoad() {
