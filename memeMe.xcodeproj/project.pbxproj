@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A11ED981EF86FF0007DFD85 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11ED971EF86FF0007DFD85 /* Meme.swift */; };
 		3AA5F3BE1EDB3EEE00F21882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5F3BD1EDB3EEE00F21882 /* AppDelegate.swift */; };
 		3AA5F3C01EDB3EEE00F21882 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5F3BF1EDB3EEE00F21882 /* ViewController.swift */; };
 		3AA5F3C31EDB3EEE00F21882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5F3C11EDB3EEE00F21882 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A11ED971EF86FF0007DFD85 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		3AA5F3BA1EDB3EEE00F21882 /* memeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA5F3BD1EDB3EEE00F21882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AA5F3BF1EDB3EEE00F21882 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				3AA5F3BD1EDB3EEE00F21882 /* AppDelegate.swift */,
 				3AA5F3BF1EDB3EEE00F21882 /* ViewController.swift */,
+				3A11ED971EF86FF0007DFD85 /* Meme.swift */,
 				3AA5F3C11EDB3EEE00F21882 /* Main.storyboard */,
 				3AA5F3C41EDB3EEE00F21882 /* Assets.xcassets */,
 				3AA5F3C61EDB3EEE00F21882 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A11ED981EF86FF0007DFD85 /* Meme.swift in Sources */,
 				3AA5F3C01EDB3EEE00F21882 /* ViewController.swift in Sources */,
 				3AA5F3BE1EDB3EEE00F21882 /* AppDelegate.swift in Sources */,
 			);
@@ -301,6 +305,7 @@
 				3AA5F3CE1EDB3EEE00F21882 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

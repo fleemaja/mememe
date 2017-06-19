@@ -21,13 +21,6 @@ class ViewController: UIViewController {
     var userEnteredTop: Bool = false
     var userEnteredBottom: Bool = false
     
-    struct Meme {
-        var topText: String!
-        var bottomText: String!
-        var image: UIImage!
-        var memedImage: UIImage!
-    }
-    
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
