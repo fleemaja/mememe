@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         topText.backgroundColor = UIColor.clear
         bottomText.backgroundColor = UIColor.clear
 
-        navBar.isHidden = true
+        shareButton.isEnabled = false
         
         setTextAttribute(textField: topText, str: "TOP")
         setTextAttribute(textField: bottomText, str: "BOTTOM")
@@ -149,7 +149,7 @@ extension ViewController: UIImagePickerControllerDelegate {
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             imageView.image = image
-            navBar.isHidden = false
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
