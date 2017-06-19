@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UITextFieldDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -91,14 +90,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         NSStrokeWidthAttributeName : NSNumber(value: -3.0)
     ]
     
-    //General method to set both textField attributs
-    func setTextAttribute(textField : UITextField, str : String) {
-        textField.delegate = self
-        textField.text = str
-        textField.defaultTextAttributes = memeTextAttribues
-        textField.textAlignment = .center
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
@@ -118,42 +109,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            imageView.image = image
-            navBar.isHidden = false
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (!userEnteredTop && textField == topText) {
-            topText.text = ""
-            userEnteredTop = true
-        } else if (!userEnteredBottom && textField == bottomText) {
-            bottomText.text = ""
-            userEnteredBottom = true
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == topText && topText.text == "" {
-            topText.text = "TOP"
-        } else if textField == bottomText && bottomText.text == "" {
-            bottomText.text = "BOTTOM"
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -189,5 +144,63 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension ViewController: UIImagePickerControllerDelegate {
+    // image picker methods
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            imageView.image = image
+            navBar.isHidden = false
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+extension ViewController: UINavigationControllerDelegate {
+    // navigation controller methods
+}
+
+// MARK: - UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    // text field methods
+    
+    // General method to set both textField attributes
+    func setTextAttribute(textField : UITextField, str : String) {
+        textField.delegate = self
+        textField.text = str
+        textField.defaultTextAttributes = memeTextAttribues
+        textField.textAlignment = .center
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (!userEnteredTop && textField == topText) {
+            topText.text = ""
+            userEnteredTop = true
+        } else if (!userEnteredBottom && textField == bottomText) {
+            bottomText.text = ""
+            userEnteredBottom = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == topText && topText.text == "" {
+            topText.text = "TOP"
+        } else if textField == bottomText && bottomText.text == "" {
+            bottomText.text = "BOTTOM"
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
