@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeViewController: UIViewController {
+class MemeEditorViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -149,7 +149,7 @@ class MemeViewController: UIViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-extension MemeViewController: UIImagePickerControllerDelegate {
+extension MemeEditorViewController: UIImagePickerControllerDelegate {
     // image picker methods
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -166,12 +166,12 @@ extension MemeViewController: UIImagePickerControllerDelegate {
 }
 
 // MARK: - UINavigationControllerDelegate
-extension MemeViewController: UINavigationControllerDelegate {
+extension MemeEditorViewController: UINavigationControllerDelegate {
     // navigation controller methods
 }
 
 // MARK: - UITextFieldDelegate
-extension MemeViewController: UITextFieldDelegate {
+extension MemeEditorViewController: UITextFieldDelegate {
     // text field methods
     
     // General method to set both textField attributes
