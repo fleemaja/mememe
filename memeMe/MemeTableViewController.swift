@@ -33,18 +33,28 @@ class MemeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memes.count
+        return self.memes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-        let meme = memes[indexPath.row]
+        let meme = self.memes[indexPath.row]
         
         if let memeCell = cell as? MemeTableViewCell {
             memeCell.meme = meme
         }
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let cell = sender as? MemeTableViewCell,
+               let indexPath = tableView.indexPath(for: cell),
+               let dvc = segue.destination as? DetailViewController {
+                   dvc.meme = self.memes[indexPath.row]
+            }
+        }
     }
     
 }

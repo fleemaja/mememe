@@ -141,6 +141,10 @@ class MemeViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
+    
+    @IBAction func cancelMeme(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
 

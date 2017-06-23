@@ -1,20 +1,21 @@
 //
-//  MemeCollectionViewCell.swift
+//  DetailViewController.swift
 //  memeMe
 //
-//  Created by Drew Fleeman on 6/20/17.
+//  Created by Drew Fleeman on 6/22/17.
 //  Copyright © 2017 drew. All rights reserved.
 //
 
 import UIKit
 
-class MemeCollectionViewCell: UICollectionViewCell {
-    
+class DetailViewController: UIViewController {
+
     @IBOutlet weak var memeImageView: UIImageView!
     
-    var meme: Meme? { didSet { updateUI() } }
+    var meme: Meme?
     
-    private func updateUI() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         if let image = meme?.memedImage {
             memeImageView.image = image
@@ -22,5 +23,5 @@ class MemeCollectionViewCell: UICollectionViewCell {
             memeImageView.image = nil
         }
     }
-    
+
 }
